@@ -18,6 +18,8 @@ jobs:
       - name: Run tests
         run: npm test
   deploy:
+    # rende il job sequenziale perchè necessita che test sia finito e poi parte deploy
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Get code
